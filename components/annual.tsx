@@ -1,6 +1,6 @@
 const Annual = () =>{
  return (
-  <div className="mt-10 w-full flex flex-col items-center bg-red-100">
+  <div className="mt-10 w-full flex flex-col items-center bg-red-100 animate-zoomIn">
     <div className="text-center text-xl mb-3 mt-7">🌟 糟粕区·年度精选 🌟</div>
     <div className="w-5/12 mt-7 sm:w-11/12">
       <div className="text-3xl text-red-800">“喂？宝贝，十砖拍的，不贵！”</div>

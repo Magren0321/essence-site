@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const Essence = ({ flow }) =>{
   return (
-    <div className='mt-10'>
+    <div className='mt-10 animate-zoomIn'>
       <div className="text-center text-xl mb-3">🥵 糟粕区·群友风骚 🥵</div>
       <div className='flex flex-wrap  justify-center'>
         {
