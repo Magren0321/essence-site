@@ -12,7 +12,7 @@ const Rank = ({rank}) =>{
  
 
   return(
-    <div className='animate-zoomIn'>
+    <div>
       <div className='text-center mt-10 font-bold italic text-lg text-gray-600'>
         天不生我 <span className='text-2xl text-red-800'>{getList[0][1].name}</span> ，糟粕万古如长夜
       </div>
