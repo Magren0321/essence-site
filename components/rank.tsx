@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
 const Rank = ({rank}) =>{
@@ -13,6 +14,10 @@ const Rank = ({rank}) =>{
 
   return(
     <div>
+      <Head>
+        <title>渊·糟粕</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className='text-center mt-10 font-bold italic text-lg text-gray-600'>
         天不生我 <span className='text-2xl text-red-800'>{getList[0][1].name}</span> ，糟粕万古如长夜
       </div>

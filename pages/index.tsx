@@ -24,9 +24,8 @@ const Home = ({ data }) => {
 
 
 export const getServerSideProps = async (content:any) =>{
-  const baseUrl = `http://localhost:3030`
-  const requestRank = await fetch(baseUrl+`/rank`)
-  const requestEssence = await fetch(baseUrl+`/getRandomEssence`)
+  const requestRank = await fetch(process.env.DB_HOST+ `/rank`)
+  const requestEssence = await fetch(process.env.DB_HOST+`/getRandomEssence`)
   
   const resultRank = await requestRank.json()
   const resultEssence = await requestEssence.json()
