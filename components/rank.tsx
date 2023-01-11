@@ -3,11 +3,15 @@ import { useEffect, useState } from 'react'
 
 const Rank = ({rank}) =>{
   const [getList, setList] = useState(rank)
+  const [fadeHeight,setFadeHeight] = useState(false)
 
   useEffect(()=> {
     if(window.innerWidth<1024){
       setList(rank.slice(0,3))
     }
+    setTimeout(()=>{
+      setFadeHeight(true)
+    },1000)
  }, [rank])
  
 
@@ -26,7 +30,7 @@ const Rank = ({rank}) =>{
                   alt={'avatar'}
                   className="rounded-full" />
                 <div className='mt-5 flex flex-col items-center'>
-                  <div className={setHeight(index)}></div>
+                  <div className={ fadeHeight ? setHeight(index) : initRankClass() }></div>
                   <div className='mt-3'>{item[1].value}</div>
                 </div>
               </div>
@@ -37,9 +41,13 @@ const Rank = ({rank}) =>{
   )
 }
 
+const initRankClass = () =>{
+  return `transition-height duration-700 h-0 w-10 bg-red-600`
+}
+
 const setHeight = (num: number) =>{
   const heightMap = ['h-64','h-52','h-40','h-32','h-28','h-20','h-16','h-14','h-12','h-10']
-  return `${heightMap[num]} w-10 bg-red-600`
+  return `transition-height duration-700 ${heightMap[num]} w-10 bg-red-600`
 } 
 
 

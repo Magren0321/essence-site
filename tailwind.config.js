@@ -6,16 +6,20 @@ module.exports = {
   ],
   theme: {
     extend: {
-      keyframes:{
+      transitionProperty: { //过度
+        'height': 'height',
+        'spacing': 'margin, padding',
+       },
+      keyframes:{ //动画
         zoomIn:{
           'from':{opacity:0},
           '50%':{opacity:1}
         }
       },
-      animation:{
+      animation:{ //动画
         'zoomIn':'zoomIn 7s ease 1'
       },
-      screens: {
+      screens: { //屏幕宽度
         'sm': {'max':'700px'}
       }
     },
