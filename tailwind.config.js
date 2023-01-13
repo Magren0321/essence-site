@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       transitionProperty: { //过度
         'height': 'height',
-        'spacing': 'margin, padding',
+        'width': 'width',
        },
       keyframes:{ //动画
         zoomIn:{

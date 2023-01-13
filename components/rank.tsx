@@ -3,16 +3,30 @@ import { useEffect, useState } from 'react'
 
 const Rank = ({rank}) =>{
   const [getList, setList] = useState(rank)
-  const [fadeHeight,setFadeHeight] = useState(false)
+  const [fade,setFade] = useState(false)
 
   useEffect(()=> {
     if(window.innerWidth<1024){
       setList(rank.slice(0,3))
     }
     setTimeout(()=>{
-      setFadeHeight(true)
+      setFade(true)
     },1000)
  }, [rank])
+
+  const initRankClass = () =>{
+    return `transition-height duration-700 h-0 w-10 bg-red-600`
+  }
+
+  const setHeight = (num: number) =>{
+    const heightMap = ['h-64','h-52','h-40','h-32','h-28','h-20','h-16','h-14','h-12','h-10']
+    return `transition-height duration-700 ${heightMap[num]} w-10 bg-red-600`
+  } 
+
+  const setSize = (num: number) =>{
+    return (getList.length-num) < 4 ? 40 : ((getList.length-num)*10)
+  }
+
  
 
   return(
@@ -25,12 +39,12 @@ const Rank = ({rank}) =>{
             return (
               <div key={item} className="mx-5 flex flex-col items-center justify-end">
                 <Image src={item[1].avatar} 
-                  width={((getList.length-index)<4?4:getList.length-index)*10} 
-                  height={((getList.length-index)<4?4:getList.length-index)*10} 
+                  width={fade?setSize(index):0} 
+                  height={fade?setSize(index):0} 
                   alt={'avatar'}
-                  className="rounded-full" />
+                  className="rounded-full transition-width duration-700 " />
                 <div className='mt-5 flex flex-col items-center'>
-                  <div className={ fadeHeight ? setHeight(index) : initRankClass() }></div>
+                  <div className={ fade ? setHeight(index) : initRankClass() }></div>
                   <div className='mt-3'>{item[1].value}</div>
                 </div>
               </div>
@@ -40,15 +54,6 @@ const Rank = ({rank}) =>{
     </div>
   )
 }
-
-const initRankClass = () =>{
-  return `transition-height duration-700 h-0 w-10 bg-red-600`
-}
-
-const setHeight = (num: number) =>{
-  const heightMap = ['h-64','h-52','h-40','h-32','h-28','h-20','h-16','h-14','h-12','h-10']
-  return `transition-height duration-700 ${heightMap[num]} w-10 bg-red-600`
-} 
 
 
 export default Rank
